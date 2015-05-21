@@ -1,5 +1,10 @@
 # Congratulations, you are one step closer to getting your issue resolved!
 
+Issue list: https://github.com/rodcul/issues/issues
+
+![screenshot](/img/issues.png)
+
+
 You're stuck, you want to become unstuck. To increase the likelihood of this, make sure your issue has:
 
 
@@ -19,15 +24,21 @@ You're stuck, you want to become unstuck. To increase the likelihood of this, ma
 
   ![screenshot](/img/labels.png)
 
+## Participation
+
+* DO post a solution to the problem if you figure something out
+* DO upvote/comment on an issue if you're also having it so issues can get prioritised by number of people it's affecting. It's likelier to be resolved faster
+
+## Searching issues on Github
+
+Learn how to use advanced operators to help you to filter the issues to ones relevant to you. Add a search query as a bookmark to your browser to access them quickly.
+
+https://help.github.com/articles/searching-issues/
+
+## Stackoverflow guidelines
+
 http://stackoverflow.com/help/how-to-ask
 
 http://stackoverflow.com/help/dont-ask
 
 http://stackoverflow.com/help/how-to-answer
-
-
-
-
-
-
-https://help.github.com/articles/searching-issues/
