@@ -11,12 +11,21 @@ github.authenticate({
     token: token
 });
 
-github.issues.edit({
+github.issues.repoIssues({
     user: "rodcul",
     repo: "issues",
-    number: 14,
-    labels: ["wf-2h"]
+    state: "open"
 }, function(err, res) {
     console.log(JSON.stringify(err));
     console.log(JSON.stringify(res));
 });
+
+// github.issues.edit({
+//     user: "rodcul",
+//     repo: "issues",
+//     number: 14,
+//     labels: ["wf-2h"]
+// }, function(err, res) {
+//     console.log(JSON.stringify(err));
+//     console.log(JSON.stringify(res));
+// });
