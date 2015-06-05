@@ -6,6 +6,7 @@ var github = new GitHubApi({
 	version: "3.0.0",
 });
 
+var labelCount = 0;
 
 github.authenticate({
 	type: "oauth",
@@ -18,7 +19,7 @@ github.issues.repoIssues({
 	repo: "issues",
 	state: "open"
 }, function(err, res) {
-	console.log(JSON.stringify(err));
+	// console.log(JSON.stringify(err));
 	var issues = [];
 	for (i = 0; i < res.length; i++) {
 
@@ -26,7 +27,9 @@ github.issues.repoIssues({
 		var hoursAgo = Date.hoursBetween(date);
 		var issue = res[i]["number"];
 		updateLabel(issue, hoursAgo);
+		labelCount += 1;
 	};
+	console.log("Updated " + labelCount + " issues");
 });
 
 
@@ -63,6 +66,5 @@ var updateLabel = function(issueNumber, hoursOld) {
 			// console.log(JSON.stringify(err));
 		});
 	}
-
 
 };
