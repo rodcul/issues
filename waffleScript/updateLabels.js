@@ -57,7 +57,7 @@ var updateLabel = function(issueNumber, hoursOld) {
 
 	if (hoursOld >= 2) {
 
-		var label = hoursOld < 6 ? "wf-2h" : "wf-6h";
+		var label = hoursOld < 6 ? "2h" : "6h";
 
 		github.issues.edit({
 			user: githubUser,
