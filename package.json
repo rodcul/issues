@@ -2,7 +2,7 @@
   "name": "issues",
   "version": "1.0.0",
   "description": "Issue list: https://github.com/rodcul/issues/issues",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,5 @@
   "dependencies": {
     "express": "^4.12.4",
     "github": "^0.2.4",
-    "node-rest-client": "^1.5.1"
   }
 }
