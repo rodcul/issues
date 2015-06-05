@@ -1,4 +1,6 @@
 var token = process.env.GITHUB_API;
+var githubUser = process.env.USER;
+var githubRepo = process.env.REPO;
 
 var GitHubApi = require("github");
 
@@ -15,8 +17,8 @@ github.authenticate({
 
 
 github.issues.repoIssues({
-	user: "rodcul",
-	repo: "issues",
+	user: githubUser,
+	repo: githubRepo,
 	state: "open"
 }, function(err, res) {
 	// console.log(JSON.stringify(err));
@@ -58,8 +60,8 @@ var updateLabel = function(issueNumber, hoursOld) {
 		var label = hoursOld < 6 ? "wf-2h" : "wf-6h";
 
 		github.issues.edit({
-			user: "rodcul",
-			repo: "issues",
+			user: githubUser,
+			repo: githubRepo,
 			number: issueNumber,
 			labels: [label]
 		}, function(err, res) {
