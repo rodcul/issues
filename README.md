@@ -1,6 +1,10 @@
 # Congratulations, you are one step closer to getting your issue resolved!
 
-Issue list: https://github.com/rodcul/issues/issues
+Issue list: https://github.com/makersacademy/issues/issues
+
+Waffle board: https://waffle.io/makersacademy/issues
+
+Waffle script: auto escalate issues across board [here](/waffleScript)
 
 ![screenshot](/img/issues.png)
 
