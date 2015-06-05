@@ -18,6 +18,6 @@
   "homepage": "https://github.com/rodcul/issues",
   "dependencies": {
     "express": "^4.12.4",
-    "github": "^0.2.4",
+    "github": "^0.2.4"
   }
 }
