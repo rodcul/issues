@@ -23,6 +23,7 @@ github.issues.repoIssues({
 	repo: githubRepo,
 	state: "open"
 }, function(err, res) {
+	if (err) {console.log(JSON.stringify(err))};
 	updateIssues(res);
 	console.log("Updated " + issuesCount + " issues");
 });
@@ -60,7 +61,7 @@ var updateLabel = function(issueNumber, hoursOld) {
 			number: issueNumber,
 			labels: [label]
 		}, function(err, res) {
-			// console.log(JSON.stringify(err));
+			if (err) {console.log(JSON.stringify(err))};
 		});
 	}
 
