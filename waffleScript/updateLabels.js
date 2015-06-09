@@ -30,10 +30,10 @@ github.issues.repoIssues({
 
 function updateIssues(issues){
 	for (i = 0; i < issues.length; i++) {
-		var date = new Date(issues[i]["created_at"]);
+		var issue = issues[i];
+		var date = new Date(issue["created_at"]);
 		var hoursAgo = hoursBetween(date);
-		var issue = issues[i]["number"];
-		updateLabel(issue, hoursAgo);
+		updateLabel(issue["number"], hoursAgo);
 		issuesCount += 1;
 	};
 };
