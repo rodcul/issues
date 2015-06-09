@@ -30,26 +30,18 @@ github.issues.repoIssues({
 
 
 function updateIssues(issues){
-	for (i = 0; i < issues.length; i++) {
-		var issue = issues[i];
+
+issues.forEach(function(issue){
 		var date = new Date(issue.created_at);
 		var hoursAgo = hoursBetween(date);
 		updateLabel(issue.number, hoursAgo);
 		issuesCount += 1;
-	};
+	});
+
 };
 
 
-function hoursBetween (date) {
-	var one_hour = 1000 * 60 * 60;
-
-	var today = new Date();
-	var difference_ms = today - date;
-	return Math.round(difference_ms / one_hour);
-}
-
-
-var updateLabel = function(issueNumber, hoursOld) {
+function updateLabel (issueNumber, hoursOld) {
 
 	if (hoursOld >= 2) {
 
@@ -64,5 +56,13 @@ var updateLabel = function(issueNumber, hoursOld) {
 			if (err) {console.log(JSON.stringify(err))};
 		});
 	}
-
 };
+
+
+function hoursBetween (date) {
+	var one_hour = 1000 * 60 * 60;
+
+	var today = new Date();
+	var difference_ms = today - date;
+	return Math.round(difference_ms / one_hour);
+}
