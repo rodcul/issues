@@ -9,6 +9,8 @@ var github = new GitHubApi({
 });
 
 var labelCount = 0;
+var issuesCount = 0;
+
 
 github.authenticate({
 	type: "oauth",
@@ -21,34 +23,27 @@ github.issues.repoIssues({
 	repo: githubRepo,
 	state: "open"
 }, function(err, res) {
-	// console.log(JSON.stringify(err));
-	var issues = [];
-	for (i = 0; i < res.length; i++) {
-
-		var date = new Date(res[i]["created_at"]);
-		var hoursAgo = Date.hoursBetween(date);
-		var issue = res[i]["number"];
-		updateLabel(issue, hoursAgo);
-		labelCount += 1;
-	};
-	console.log("Updated " + labelCount + " issues");
+	updateIssues(res);
+	console.log("Updated " + issuesCount + " issues");
 });
 
 
-Date.hoursBetween = function(date) {
-	//Get 1 day in milliseconds
+function updateIssues(issues){
+	for (i = 0; i < issues.length; i++) {
+		var date = new Date(issues[i]["created_at"]);
+		var hoursAgo = hoursBetween(date);
+		var issue = issues[i]["number"];
+		updateLabel(issue, hoursAgo);
+		issuesCount += 1;
+	};
+};
+
+
+function hoursBetween (date) {
 	var one_hour = 1000 * 60 * 60;
 
 	var today = new Date();
-
-	// Convert both dates to milliseconds
-	var date1_ms = date.getTime();
-	var date2_ms = today.getTime();
-
-	// Calculate the difference in milliseconds
-	var difference_ms = date2_ms - date1_ms;
-
-	// Convert back to days and return
+	var difference_ms = today - date;
 	return Math.round(difference_ms / one_hour);
 }
 
